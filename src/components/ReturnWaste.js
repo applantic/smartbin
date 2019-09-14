@@ -3,6 +3,7 @@ import RssFeedIcon from '@material-ui/icons/RssFeed';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router';
+import MainAppBar from './AppBar';
 
 const styles = theme => ({
   '@global': {
@@ -40,6 +41,7 @@ class ReturnWaste extends React.Component {
     return (
       <Container maxWidth="lg">
         <CssBaseline />
+        <MainAppBar header="RETURN WASTE" canGoBack/>
         <div className={classes.returnWaste}>
           <RssFeedIcon className="material-icons" style={{fontSize: '120px'}} />
           <Typography variant="body2">Please connect to the smart bin</Typography>
