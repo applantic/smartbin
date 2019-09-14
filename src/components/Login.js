@@ -34,23 +34,23 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.submitLoginForm = this.submitLoginForm.bind(this);
-    this.onEmailChange = this.onEmailChange.bind(this);
+    this.onPhoneChange = this.onPhoneChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
     this.state = {
-      email: '',
+      phone: '',
       password: ''
     };
   }
 
   submitLoginForm(event) {
     event.preventDefault();
-    console.log('Logged in as ' + this.state.email + ' with password ' + this.state.password);
+    console.log('Logged in as ' + this.state.phone + ' with password ' + this.state.password);
     this.props.history.push('/dashboard');
   }
 
-  onEmailChange(e) {
+  onPhoneChange(e) {
     this.setState({
-      email: e.target.value
+      phone: e.target.value
     });
   }
 
@@ -73,20 +73,18 @@ class Login extends React.Component {
           <Typography component="h1" variant="h5">Sign in</Typography>
           <form className={classes.form} noValidate onSubmit={this.submitLoginForm}>
             <TextField
-              variant="outlined"
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="phone"
+              label="Phone number"
+              name="phone"
+              autoComplete="phone"
               autoFocus
               value={this.state.email}
-              onChange={this.onEmailChange}
+              onChange={this.onPhoneChange}
             />
             <TextField
-              variant="outlined"
               margin="normal"
               required
               fullWidth
@@ -109,7 +107,7 @@ class Login extends React.Component {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Login
             </Button>
             <Grid container>
               <Grid item xs>
@@ -119,7 +117,7 @@ class Login extends React.Component {
               </Grid>
               <Grid item>
                 <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                  Sign Up
                 </Link>
               </Grid>
             </Grid>
