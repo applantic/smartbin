@@ -11,7 +11,7 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <Router>
-          <Route path="/" exact component={Login} />
+          <Route path="/" exact component={Dashboard} />
           <Route path="/login/" component={Login} />
           <Route path="/dashboard/" component={Dashboard} />
           <Route path="/return/" component={ReturnWaste} />

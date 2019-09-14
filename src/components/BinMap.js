@@ -51,7 +51,7 @@ class BinMap extends React.Component {
 
   render() {
     const classes = this.props.classes;
-    const position = [52.110651, 20.831206];
+    const position = [52.111651, 20.831206];
     const markers = [{
       latlng: [52.110651, 20.831206],
       name: 'bin1'
