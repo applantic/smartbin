@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.461d90f5.chunk.css",
+    "main.js": "/static/js/main.29b2eab6.chunk.js",
+    "main.js.map": "/static/js/main.29b2eab6.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.ba5b44fd.js",
+    "runtime~main.js.map": "/static/js/runtime~main.ba5b44fd.js.map",
+    "static/css/2.098bc035.chunk.css": "/static/css/2.098bc035.chunk.css",
+    "static/js/2.1d9ba8b3.chunk.js": "/static/js/2.1d9ba8b3.chunk.js",
+    "static/js/2.1d9ba8b3.chunk.js.map": "/static/js/2.1d9ba8b3.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.124dfaf0240b500964cdbc6eb6bc2a3c.js": "/precache-manifest.124dfaf0240b500964cdbc6eb6bc2a3c.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.098bc035.chunk.css.map": "/static/css/2.098bc035.chunk.css.map",
+    "static/css/main.461d90f5.chunk.css.map": "/static/css/main.461d90f5.chunk.css.map",
+    "static/media/pointerIcon.svg": "/static/media/pointerIcon.4605f750.svg",
+    "static/media/smart-bin.svg": "/static/media/smart-bin.9afe9c1e.svg"
+  }
+}
