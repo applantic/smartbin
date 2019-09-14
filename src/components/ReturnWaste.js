@@ -41,7 +41,7 @@ class ReturnWaste extends React.Component {
     return (
       <Container maxWidth="lg">
         <CssBaseline />
-        <MainAppBar header="RETURN WASTE"/>
+        <MainAppBar header="RETURN WASTE" canGoBack/>
         <div className={classes.returnWaste}>
           <RssFeedIcon className="material-icons" style={{fontSize: '120px'}} />
           <Typography variant="body2">Please connect to the smart bin</Typography>

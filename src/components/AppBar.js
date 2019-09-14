@@ -45,13 +45,11 @@ class MainAppBar extends React.Component {
       }
 
   onBackHandler = () => {
-    console.log("Return to back screen");
     this.props.history.goBack();
   };
 
   render() {
     const classes = this.props.classes;
-    var canGoBack = (this.props.history.length > 2);
 
       return (
         <div className={this.props.classes.root}>
@@ -63,7 +61,7 @@ class MainAppBar extends React.Component {
           justify="space-around"
           alignItems="center"
           >
-          {canGoBack && (
+          {this.props.canGoBack && (
             <ArrowBackIosIcon className={classes.arrow} onClick={this.onBackHandler}/>
           )}
             <div className={classes.header}>
