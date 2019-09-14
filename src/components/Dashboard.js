@@ -25,10 +25,15 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.goToReturnWaste = this.goToReturnWaste.bind(this);
+    this.goToBinMap = this.goToBinMap.bind(this);
   }
 
   goToReturnWaste() {
     this.props.history.push('/return');
+  }
+
+  goToBinMap() {
+    this.props.history.push('/map');
   }
 
   render() {
@@ -46,12 +51,15 @@ class Dashboard extends React.Component {
                 <Typography component="h1" variant="h5">John Kowalski</Typography>
               </Grid>
               <Grid item>
-                <Typography variant="body">Points: {points}</Typography>
+                <Typography variant="body2">Points: {points}</Typography>
               </Grid>
             </Grid>
           </Grid>
           <Button variant="contained" color="primary" className={classes.wasteButton} fullWidth onClick={this.goToReturnWaste}>
             Return waste
+          </Button>
+          <Button fullWidth onClick={this.goToBinMap}>
+            Find bin
           </Button>
         </div>
       </Container>
