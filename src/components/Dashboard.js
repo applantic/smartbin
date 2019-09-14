@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import { withRouter } from 'react-router';
+import Item from './Item';
+import panda from '../img/panda.png';
+import ziel from '../img/ziel.png';
+import MainAppBar from './AppBar';
 
 const styles = theme => ({
   '@global': {
@@ -36,6 +40,21 @@ const binIcon = new L.Icon({
   shadowSize: null,
   shadowAnchor: null,
 })
+
+const items = [
+  {
+    img: panda,
+    name: 'Wesprzyj funacje WWF',
+    price: '220pkt = 5zł',
+    amount: 'Przekaż 220pkt',
+  },
+  {
+    img: ziel,
+    name: 'Posadź drzewo!',
+    price: '220pkt = Drzewo',
+    amount: 'Przekaż 220pkt',
+  }
+]
 
 class Dashboard extends React.Component {
 
@@ -93,6 +112,7 @@ class Dashboard extends React.Component {
       <Container maxWidth="lg">
         <CssBaseline />
         <div className={classes.dashboard}>
+        <MainAppBar header="SMART BIN"/>
           <Grid container justify="center" alignItems="center">
             <Grid item xs={3}><Avatar className={classes.avatar}>JK</Avatar></Grid>
             <Grid item xs={9} container direction="column">
@@ -105,7 +125,7 @@ class Dashboard extends React.Component {
             </Grid>
           </Grid>
         </div>
-        <div style={{height: '220px'}}>
+        <div style={{ height: '220px' }}>
           <Map center={position} zoom={15} onClick={this.onMapClick}>
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -113,6 +133,10 @@ class Dashboard extends React.Component {
             />
             {leafetMarkers}
           </Map>
+        </div>
+        <div>
+          <div style={{ paddingTop: '15px' }} > MAKE THE WORLD BETTER</div>
+          {items.map(item => <Item {...item} />)}
         </div>
       </Container>
     );

@@ -1,6 +1,7 @@
 {
   "name": "hack-yeah-sample-app",
   "version": "0.1.0",
+  "homepage" : "http://lliberadzki.github.io/hackyeah2019",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.4.2",
