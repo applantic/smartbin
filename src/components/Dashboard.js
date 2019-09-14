@@ -1,7 +1,8 @@
-import { Avatar, Button, Container, CssBaseline, Grid, Typography, withStyles } from '@material-ui/core';
+import { Avatar, Button, Container, CssBaseline, Grid, Typography, withStyles, AppBar } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router';
+import MainAppBar from './AppBar';
 
 const styles = theme => ({
   '@global': {
@@ -39,6 +40,7 @@ class Dashboard extends React.Component {
       <Container maxWidth="lg">
         <CssBaseline />
         <div className={classes.dashboard}>
+        <MainAppBar header="SMART BIN"/>
           <Grid container justify="center" alignItems="center">
             <Grid item xs={3}><Avatar className={classes.avatar}>JK</Avatar></Grid>
             <Grid item xs={9} container direction="column">
