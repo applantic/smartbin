@@ -11,6 +11,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { Grid, withStyles } from '@material-ui/core';
 import { withRouter } from 'react-router';
 import COLORS from '../variables/colors';
+import LogoIcon from './LogoIcon';
 
 const styles = theme => ({
   root: {
@@ -67,7 +68,7 @@ class MainAppBar extends React.Component {
           )}
             <div className={classes.header}>
             <div>
-            {this.props.header}
+            <LogoIcon style={{width: '300px', height: '35px'}}/>
             </div>
             </div>
             <InfoOutlinedIcon className={classes.info} />
