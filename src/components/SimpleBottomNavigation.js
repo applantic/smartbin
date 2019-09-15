@@ -2,9 +2,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import PersonIcon from '@material-ui/icons/Person';
+import LoyaltyIcon from '@material-ui/icons/Loyalty';
+import HomeIcon from '@material-ui/icons/Home';
+import DescriptionIcon from '@material-ui/icons/Description';
 import COLORS from '../variables/colors';
 import { withRouter } from 'react-router';
 
@@ -44,11 +46,11 @@ function SimpleBottomNavigation(props) {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction  onClick={() => {onChnageBottom('/');}} label="Home" icon={<RestoreIcon color="secondary" className={classes.icon}/>}/>
-      <BottomNavigationAction label="Eko porady" icon={<FavoriteIcon color="secondary"  className={classes.icon}/>} />
-      <BottomNavigationAction label="Wymień pkt" icon={<LocationOnIcon className={classes.icon}/>} />
-      <BottomNavigationAction label="Maps" icon={<LocationOnIcon className={classes.icon}/>} />
-      <BottomNavigationAction label="Profil" icon={<LocationOnIcon className={classes.icon}/>} />
+      <BottomNavigationAction  onClick={() => {onChnageBottom('/');}} label="Home" icon={<HomeIcon className={classes.icon}/>}/>
+      <BottomNavigationAction label="Eco tips" icon={<DescriptionIcon className={classes.icon}/>} />
+      <BottomNavigationAction label="Loyalty" icon={<LoyaltyIcon className={classes.icon}/>} />
+      <BottomNavigationAction label="Maps" onClick={() => {onChnageBottom('/map');}} icon={<LocationOnIcon className={classes.icon}/>} />
+      <BottomNavigationAction label="Profile" icon={<PersonIcon className={classes.icon}/>} />
     </BottomNavigation>
   );
 }

@@ -22,10 +22,9 @@ const styles = theme => ({
   },
   map: {
     position: 'absolute',
-    top: 0,
-    bottom: 0,
+    top: 56,
+    bottom: 56,
     width: '100%',
-    height: '100%'
   },
   mapMarkerTooltip: {
     position: 'fixed',
