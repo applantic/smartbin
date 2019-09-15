@@ -1,21 +1,29 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import "./App.css";
 import BinMap from "./components/BinMap";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import ReturnWaste from "./components/ReturnWaste";
 import SimpleBottomNavigation from "./components/SimpleBottomNavigation";
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import MainAppBar from './components/AppBar';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import COLORS from './variables/colors';
+import Fonts from "./components/Fonts";
 
 
-const styles  = theme => ({
+const styles = theme => ({
   root: {
     paddingBottom: '56px',
   },
+  fontLoading: {
+    opacity: 0,
+    transition: 'opacity 0.5s'
+  },
+  fontLoaded: {
+    opacity: 1
+  }
 });
 
 // use default theme
@@ -23,8 +31,8 @@ const styles  = theme => ({
 
 // Or Create your Own theme:
 const theme = createMuiTheme({
-  palette: {
-    primary: {
+    palette: {
+      primary: {
         main: COLORS.green,
         contrastText: COLORS.white,
       }
@@ -32,29 +40,30 @@ const theme = createMuiTheme({
   },
 )
 
-class App extends React.Component {
+function App({classes}) {
+  const [isFontLoaded, setIsFontLoaded] = useState(false);
+  useEffect(() => {
+    Fonts().then(() => setIsFontLoaded(true));
+  });
 
-  render() {
-    const {classes} = this.props;
-
-    return (
-      <div className="app">
+  return (
+    <div className={`app ${isFontLoaded ? classes.fontLoaded : classes.fontLoading}`}>
       <MuiThemeProvider theme={theme}>
-      <div className={classes.root}>
-        <Router>
-        <MainAppBar header="SMART BIN"/>
-          <Route path="/" exact component={Dashboard} />
-          <Route path="/login/" component={Login} />
-          <Route path="/dashboard/" component={Dashboard} />
-          <Route path="/return/" component={ReturnWaste} />
-          <Route path="/map/" component={BinMap} />
-          <SimpleBottomNavigation />
-        </Router>
+        <div className={classes.root}>
+          <Router>
+            <MainAppBar header="SMART BIN"/>
+            <Route path="/" exact component={Dashboard}/>
+            <Route path="/login/" component={Login}/>
+            <Route path="/dashboard/" component={Dashboard}/>
+            <Route path="/return/" component={ReturnWaste}/>
+            <Route path="/map/" component={BinMap}/>
+            <SimpleBottomNavigation/>
+          </Router>
         </div>
-        </MuiThemeProvider>
-      </div>
-    );
-  }
+      </MuiThemeProvider>
+    </div>
+  );
+
 }
 
 export default withStyles(styles)(App);
