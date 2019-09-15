@@ -10,6 +10,7 @@ import ziel from '../img/ziel.png';
 import iqosBlack from '../img/iqos-black.png';
 import iqosWhite from '../img/iqos-white.png';
 import Alternatives from "./Alternatives";
+import PointCounter from './PointCounter';
 
 const styles = theme => ({
   '@global': {
@@ -22,7 +23,6 @@ const styles = theme => ({
     }
   },
   dashboard: {
-    marginTop: theme.spacing(4)
   },
   avatar: {
     margin: 10
@@ -126,18 +126,8 @@ class Dashboard extends React.Component {
     return (
       <Container maxWidth="lg">
         <CssBaseline />
-        <div className={classes.dashboard}>
-          <Grid container justify="center" alignItems="center">
-            <Grid item xs={3}><Avatar className={classes.avatar}>JK</Avatar></Grid>
-            <Grid item xs={9} container direction="column">
-              <Grid item>
-                <Typography component="h1" variant="h5">John Kowalski</Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant="body2">Points: {points}</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
+        <div>
+          <PointCounter />
         </div>
         <div style={{ height: '220px' }}>
           <Map center={position} zoom={15} onClick={this.onMapClick}>

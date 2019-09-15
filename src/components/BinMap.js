@@ -1,12 +1,12 @@
-import { Container, CssBaseline, Grid, withStyles, Typography, Box } from '@material-ui/core';
+import { Container, CssBaseline, Grid, Typography, withStyles } from '@material-ui/core';
 import L from 'leaflet';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import { withRouter } from 'react-router';
-import SmartBinBigIcon from './SmartBinBigIcon';
 import Background from '../img/no-image.png';
 import NavigationIcon from './NavigationIcon';
+import SmartBinBigIcon from './SmartBinBigIcon';
 
 const styles = theme => ({
   '@global': {
