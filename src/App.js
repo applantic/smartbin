@@ -11,6 +11,7 @@ import MainAppBar from './components/AppBar';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import COLORS from './variables/colors';
 import Fonts from "./components/Fonts";
+import Profile from "./components/Profile";
 import ReactGA from 'react-ga';
 import EkoTips from "./components/EkoTips";
 ReactGA.initialize('UA-148040080-1');
@@ -61,6 +62,7 @@ function App({classes}) {
             <Route path="/return/" component={ReturnWaste}/>
             <Route path="/map/" component={BinMap}/>
             <Route path="/tips/" component={EkoTips}/>
+            <Route path="/profile/" component={Profile} />
             <SimpleBottomNavigation/>
           </Router>
         </div>
