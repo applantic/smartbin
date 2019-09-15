@@ -1,4 +1,4 @@
-import { Avatar, Container, CssBaseline, Grid, Typography, withStyles } from '@material-ui/core';
+import { Container, CssBaseline, withStyles } from '@material-ui/core';
 import L from 'leaflet';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -9,8 +9,9 @@ import panda from '../img/panda.png';
 import ziel from '../img/ziel.png';
 import iqosBlack from '../img/iqos-black.png';
 import iqosWhite from '../img/iqos-white.png';
-import Alternatives from "./Alternatives";
+import Alternative from "./Alternative";
 import PointCounter from './PointCounter';
+import Carousel from "./Carousel";
 
 const styles = theme => ({
   '@global': {
@@ -43,14 +44,16 @@ const binIcon = new L.Icon({
   shadowAnchor: null,
 })
 
-const items = [
+export const items = [
   {
+    id: "1",
     img: panda,
     name: 'Wesprzyj funacje WWF',
     price: '220pkt = 5zł',
     amount: 'Przekaż 220pkt',
   },
   {
+    id: "2",
     img: ziel,
     name: 'Posadź drzewo!',
     price: '220pkt = Drzewo',
@@ -127,7 +130,7 @@ class Dashboard extends React.Component {
       <Container maxWidth="lg">
         <CssBaseline />
         <div>
-          <PointCounter />
+          <PointCounter content={{leftPoint: 170, leftText: "PETÓW", rightPoint: 510, rightText: "PKT"}} />
         </div>
         <div style={{ height: '220px' }}>
           <Map center={position} zoom={15} onClick={this.onMapClick}>
@@ -144,7 +147,7 @@ class Dashboard extends React.Component {
         </div>
         <div>
           <div style={{ paddingTop: '15px' }} >SMOKE BETTER FOR THE ENVIRONMENT</div>
-          <Alternatives alternatives={alternatives} />
+          <Carousel >{alternatives.map(alternative => <Alternative {...alternative} />)}</Carousel>
         </div>
       </Container>
     );

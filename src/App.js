@@ -14,6 +14,7 @@ import Fonts from "./components/Fonts";
 import Profile from "./components/Profile";
 import ReactGA from 'react-ga';
 import EkoTips from "./components/EkoTips";
+import TradePage from "./components/TradePage";
 ReactGA.initialize('UA-148040080-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -63,6 +64,7 @@ function App({classes}) {
             <Route path="/map/" component={BinMap}/>
             <Route path="/tips/" component={EkoTips}/>
             <Route path="/profile/" component={Profile} />
+            <Route path="/trade/:itemId" component={TradePage}/>
             <SimpleBottomNavigation/>
           </Router>
         </div>

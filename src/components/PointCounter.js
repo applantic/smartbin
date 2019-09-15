@@ -27,7 +27,7 @@ const styles = theme => ({
 class PointCounter extends React.Component {
 
   render() {
-    const classes = this.props.classes;
+    const {classes, content}= this.props;
 
     return (
       <Container maxWidth="lg" className={classes.container}>
@@ -36,10 +36,10 @@ class PointCounter extends React.Component {
           <Grid item xs={5}>
             <Grid container direction="column" justify="center" alignItems="center" spacing={1}>
               <Grid item>
-                <div className={classes.pointCard}><Typography variant="h4">170</Typography></div>
+                <div className={classes.pointCard}><Typography variant="h4">{content.leftPoint}</Typography></div>
               </Grid>
               <Grid item>
-                <Typography variant="body2">PETÓW</Typography>
+                <Typography variant="body2">{content.leftText}</Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -47,10 +47,10 @@ class PointCounter extends React.Component {
           <Grid item xs={5}>
             <Grid container direction="column" justify="center" alignItems="center" spacing={1}>
               <Grid item>
-                <div className={classes.pointCard}><Typography variant="h4">510</Typography></div>
+                <div className={classes.pointCard}><Typography variant="h4">{content.rightPoint}</Typography></div>
               </Grid>
               <Grid item>
-                <Typography variant="body2">PKT</Typography>
+                <Typography variant="body2">{content.rightText}</Typography>
               </Grid>
             </Grid>
           </Grid>

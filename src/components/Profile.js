@@ -1,9 +1,7 @@
 import { Container, CssBaseline, Typography, withStyles, Button, Grid, Avatar } from '@material-ui/core';
-import RssFeedIcon from '@material-ui/icons/RssFeed';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router';
-import MainAppBar from './AppBar';
 import COLORS from '../variables/colors';
 import Photo from '../img/profile_photo.png';
 import PointCounter from './PointCounter';
@@ -80,7 +78,7 @@ class Profile extends React.Component {
             <div className={classes.text}>annakowalska@gmail.com</div>
       </div>
       <div>
-          <PointCounter />
+          <PointCounter content={{leftPoint: 170, leftText: "PETÓW", rightPoint: 510, rightText: "PKT"}} />
       </div>
     </Grid>
         <div className={classes.buttons}>
