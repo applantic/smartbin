@@ -12,6 +12,7 @@ import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import COLORS from './variables/colors';
 import Fonts from "./components/Fonts";
 import ReactGA from 'react-ga';
+import EkoTips from "./components/EkoTips";
 ReactGA.initialize('UA-148040080-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -59,6 +60,7 @@ function App({classes}) {
             <Route path="/dashboard/" component={Dashboard}/>
             <Route path="/return/" component={ReturnWaste}/>
             <Route path="/map/" component={BinMap}/>
+            <Route path="/tips/" component={EkoTips}/>
             <SimpleBottomNavigation/>
           </Router>
         </div>
