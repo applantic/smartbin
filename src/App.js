@@ -11,6 +11,7 @@ import MainAppBar from './components/AppBar';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import COLORS from './variables/colors';
 import Fonts from "./components/Fonts";
+import Profile from "./components/Profile";
 import ReactGA from 'react-ga';
 ReactGA.initialize('UA-148040080-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
@@ -59,6 +60,7 @@ function App({classes}) {
             <Route path="/dashboard/" component={Dashboard}/>
             <Route path="/return/" component={ReturnWaste}/>
             <Route path="/map/" component={BinMap}/>
+            <Route path="/profile/" component={Profile} />
             <SimpleBottomNavigation/>
           </Router>
         </div>
