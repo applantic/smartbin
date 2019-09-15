@@ -1,7 +1,7 @@
 {
-  "name": "hack-yeah-sample-app",
+  "name": "smartbin",
   "version": "0.1.0",
-  "homepage": "http://lliberadzki.github.io/hackyeah2019",
+  "homepage": "https://smartbin.best",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.4.2",
