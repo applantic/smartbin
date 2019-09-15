@@ -10,11 +10,12 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { Grid, withStyles } from '@material-ui/core';
 import { withRouter } from 'react-router';
+import COLORS from '../variables/colors';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
     marginBottom: 14,
+    height: '100%',
   },
   arrow: {
     position: 'absolute',
@@ -53,7 +54,7 @@ class MainAppBar extends React.Component {
 
       return (
         <div className={this.props.classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" color="primary">
           <Toolbar>
           <Grid
           container

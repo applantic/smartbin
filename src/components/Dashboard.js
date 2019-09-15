@@ -100,7 +100,6 @@ class Dashboard extends React.Component {
       <Container maxWidth="lg">
         <CssBaseline />
         <div className={classes.dashboard}>
-        <MainAppBar header="SMART BIN"/>
           <Grid container justify="center" alignItems="center">
             <Grid item xs={3}><Avatar className={classes.avatar}>JK</Avatar></Grid>
             <Grid item xs={9} container direction="column">
