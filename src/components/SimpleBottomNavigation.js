@@ -28,9 +28,20 @@ const useStyles = makeStyles({
   },
 });
 
+const bottomNavigationOverrideClasses = makeStyles({
+  root: {
+    color: COLORS.white,
+  },
+  selected: {
+    color: COLORS.white,
+    backgroundColor: COLORS.selected_green,
+  },
+});
+
 
 function SimpleBottomNavigation(props) {
   const classes = useStyles();
+  const overrideClasses = bottomNavigationOverrideClasses();
   const [value, setValue] = React.useState(0);
   
   const onChnageBottom = (componentName) => {
@@ -46,11 +57,11 @@ function SimpleBottomNavigation(props) {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction  onClick={() => {onChnageBottom('/');}} label="Home" icon={<HomeIcon className={classes.icon}/>}/>
-      <BottomNavigationAction label="Eco tips" icon={<DescriptionIcon className={classes.icon}/>} />
-      <BottomNavigationAction label="Loyalty" icon={<LoyaltyIcon className={classes.icon}/>} />
-      <BottomNavigationAction label="Maps" onClick={() => {onChnageBottom('/map');}} icon={<LocationOnIcon className={classes.icon}/>} />
-      <BottomNavigationAction label="Profile" icon={<PersonIcon className={classes.icon}/>} />
+      <BottomNavigationAction  onClick={() => {onChnageBottom('/');}} label="Home" classes={overrideClasses} icon={<HomeIcon className={classes.icon}/>}/>
+      <BottomNavigationAction label="Eco tips" classes={overrideClasses} icon={<DescriptionIcon className={classes.icon}/>} />
+      <BottomNavigationAction label="Loyalty" classes={overrideClasses} icon={<LoyaltyIcon className={classes.icon}/>} />
+      <BottomNavigationAction label="Maps" classes={overrideClasses} onClick={() => {onChnageBottom('/map');}} icon={<LocationOnIcon className={classes.icon}/>} />
+      <BottomNavigationAction label="Profile" classes={overrideClasses} icon={<PersonIcon className={classes.icon}/>} />
     </BottomNavigation>
   );
 }
