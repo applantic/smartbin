@@ -87,6 +87,18 @@ class Dashboard extends React.Component {
     }, {
       latlng: [52.115961, 20.836083],
       name: 'bin5'
+    }, {
+      latlng: [52.114133, 20.831649],
+      name: 'bin6'
+    }, {
+      latlng: [52.116164, 20.839485],
+      name: 'bin7'
+    }, {
+      latlng: [52.114970, 20.826790],
+      name: 'bin8'
+    }, {
+      latlng: [52.106934, 20.824262],
+      name: 'bin9'
     }];
     const leafetMarkers = markers.map(marker => (
       <Marker position={marker.latlng} key={`marker_${marker.name}`} icon={binIcon}>

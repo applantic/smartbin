@@ -1,9 +1,12 @@
-import { Button, Container, CssBaseline, withStyles } from '@material-ui/core';
+import { Container, CssBaseline, Grid, withStyles, Typography, Box } from '@material-ui/core';
 import L from 'leaflet';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import { withRouter } from 'react-router';
+import SmartBinBigIcon from './SmartBinBigIcon';
+import Background from '../img/no-image.png';
+import NavigationIcon from './NavigationIcon';
 
 const styles = theme => ({
   '@global': {
@@ -12,6 +15,9 @@ const styles = theme => ({
     },
     '.leaflet-container': {
       height: '100%',
+    },
+    '.hidden': {
+      display: 'none'
     }
   },
   map: {
@@ -19,55 +25,91 @@ const styles = theme => ({
     top: 0,
     bottom: 0,
     width: '100%',
-    height: '92%'
+    height: '100%'
   },
-  returnFooter: {
+  mapMarkerTooltip: {
     position: 'fixed',
-    bottom: 10
+    bottom: 0,
+    backgroundColor: theme.palette.common.white,
+    width: '100%',
+    zIndex: 1000,
+    paddingTop: '15px',
+    paddingBottom: '15px',
+    borderRadius: '15px 15px 0 0'
+  },
+  noImage: {
+    height: '100px',
+    width: '100px',
+    backgroundSize: '100px 100px',
+    backgroundImage: `url(${Background})`
   }
 });
 
-export const binIcon = new L.Icon({
-  iconUrl: require('../img/pointerIcon.svg'),
-  iconRetinaUrl: require('../img/pointerIcon.svg'),
-  iconAnchor: [5, 55],
-  popupAnchor: [10, -44],
-  iconSize: [25, 55],
-  shadowUrl: '../img/marker-shadow.png',
-  shadowSize: [68, 95],
-  shadowAnchor: [20, 92],
+const binIcon = new L.Icon({
+  iconUrl: require('../img/smart-bin.svg'),
+  iconRetinaUrl: require('../img/smart-bin.svg'),
+  iconAnchor: [12.5, 35],
+  popupAnchor: null,
+  iconSize: [25, 35],
+  shadowUrl: null,
+  shadowSize: null,
+  shadowAnchor: null,
 })
+
+const markers = [{
+  latlng: [52.110651, 20.831206],
+  name: 'bin1'
+}, {
+  latlng: [52.111712, 20.829563],
+  name: 'bin2'
+}, {
+  latlng: [52.113116, 20.834403],
+  name: 'bin3'
+}, {
+  latlng: [52.104883, 20.829565],
+  name: 'bin4'
+}, {
+  latlng: [52.115961, 20.836083],
+  name: 'bin5'
+}, {
+  latlng: [52.114133, 20.831649],
+  name: 'bin6'
+}, {
+  latlng: [52.116164, 20.839485],
+  name: 'bin7'
+}, {
+  latlng: [52.114970, 20.826790],
+  name: 'bin8'
+}, {
+  latlng: [52.106934, 20.824262],
+  name: 'bin9'
+}];
 
 class BinMap extends React.Component {
 
   constructor(props) {
     super(props);
     this.onReturnClick = this.onReturnClick.bind(this);
+    this.onMarkerClick = this.onMarkerClick.bind(this);
+    this.state = {
+      showMarkerPopup: false
+    };
   }
 
   onReturnClick() {
     this.props.history.push('/dashboard');
   }
 
+  onMarkerClick() {
+    const marker = markers[0];
+    this.setState({
+      showMarkerPopup: !this.state.showMarkerPopup
+    });
+  }
+
   render() {
     const classes = this.props.classes;
     const position = [52.111651, 20.831206];
-    const markers = [{
-      latlng: [52.110651, 20.831206],
-      name: 'bin1'
-    }, {
-      latlng: [52.111712, 20.829563],
-      name: 'bin2'
-    }, {
-      latlng: [52.113116, 20.834403],
-      name: 'bin3'
-    }, {
-      latlng: [52.104883, 20.829565],
-      name: 'bin4'
-    }, {
-      latlng: [52.115961, 20.836083],
-      name: 'bin5'
-    }];
 
     const leafetMarkers = markers.map(marker => (
       <Marker position={marker.latlng} key={`marker_${marker.name}`} icon={binIcon}>
@@ -80,7 +122,7 @@ class BinMap extends React.Component {
     return (
       <div>
         <div className={classes.map}>
-          <Map center={position} zoom={15}>
+          <Map center={position} zoom={15} onClick={this.onMarkerClick}>
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
@@ -88,14 +130,44 @@ class BinMap extends React.Component {
             {leafetMarkers}
           </Map>
         </div>
-        <Container maxWidth="lg">
-          <CssBaseline />
-          <div className={classes.returnFooter}>
-            <Button color="secondary" onClick={this.onReturnClick}>
-              Return
-            </Button>
+        <div className={this.state.showMarkerPopup ? '' : 'hidden'}>
+          <div className={classes.mapMarkerTooltip}>
+            <Container maxWidth="lg">
+              <CssBaseline/>
+              <Grid container justify="center" alignItems="center">
+                <Grid item xs={4}>
+                  <div className={classes.noImage}>
+                  </div>
+                </Grid>
+                <Grid item xs={8} container direction="column" spacing={2}>
+                  <Grid item xs={12} container alignItems="center">
+                    <Grid item xs={3} style={{textAlign: 'center'}}>
+                      <SmartBinBigIcon fontSize="large"/>
+                    </Grid>
+                    <Grid item xs={9} container direction="column">
+                      <Grid item>
+                        <Typography component="h1" variant="h6">Smart Bin 283</Typography>
+                      </Grid>
+                      <Grid item>
+                        <Typography variant="body2">ul. Jerozolimska 20</Typography>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={12} container spacing={2} alignItems="center">
+                    <Grid item xs={10} style={{backgroundColor: '#29B574', color: '#fff'}}>
+                      Kieruj się na północny wschód
+                    </Grid>
+                    <Grid item xs={2}>
+                      <div style={{backgroundColor: '#29B574', color: '#fff', height: '100%', width: '100%'}}>
+                        <NavigationIcon/>
+                      </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Container>
           </div>
-        </Container>
+        </div>
       </div>
     );
   }
