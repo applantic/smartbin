@@ -7,7 +7,9 @@ import { withRouter } from 'react-router';
 import Item from './Item';
 import panda from '../img/panda.png';
 import ziel from '../img/ziel.png';
-import MainAppBar from './AppBar';
+import iqosBlack from '../img/iqos-black.png';
+import iqosWhite from '../img/iqos-white.png';
+import Alternatives from "./Alternatives";
 
 const styles = theme => ({
   '@global': {
@@ -53,6 +55,19 @@ const items = [
     name: 'Posadź drzewo!',
     price: '220pkt = Drzewo',
     amount: 'Przekaż 220pkt',
+  }
+]
+
+const alternatives = [
+  {
+    img: iqosBlack,
+    name: 'Iqos',
+    description: '10% zniżki',
+  },
+  {
+    img: iqosWhite,
+    name: 'Iqos',
+    description: '10% zniżki',
   }
 ]
 
@@ -136,6 +151,10 @@ class Dashboard extends React.Component {
         <div>
           <div style={{ paddingTop: '15px' }} > MAKE THE WORLD BETTER</div>
           {items.map(item => <Item {...item} />)}
+        </div>
+        <div>
+          <div style={{ paddingTop: '15px' }} >SMOKE BETTER FOR THE ENVIRONMENT</div>
+          <Alternatives alternatives={alternatives} />
         </div>
       </Container>
     );
