@@ -7,6 +7,7 @@ import { withRouter } from 'react-router';
 import Background from '../img/no-image.png';
 import NavigationIcon from './NavigationIcon';
 import SmartBinBigIcon from './SmartBinBigIcon';
+import ArrowIcon from './ArrowIcon';
 
 const styles = theme => ({
   '@global': {
@@ -28,7 +29,7 @@ const styles = theme => ({
   },
   mapMarkerTooltip: {
     position: 'fixed',
-    bottom: 0,
+    bottom: '56px',
     backgroundColor: theme.palette.common.white,
     width: '100%',
     zIndex: 1000,
@@ -140,10 +141,10 @@ class BinMap extends React.Component {
                 </Grid>
                 <Grid item xs={8} container direction="column" spacing={2}>
                   <Grid item xs={12} container alignItems="center">
-                    <Grid item xs={3} style={{textAlign: 'center'}}>
+                    <Grid item xs={2} style={{textAlign: 'center'}}>
                       <SmartBinBigIcon fontSize="large"/>
                     </Grid>
-                    <Grid item xs={9} container direction="column">
+                    <Grid item xs={10} container direction="column">
                       <Grid item>
                         <Typography component="h1" variant="h6">Smart Bin 283</Typography>
                       </Grid>
@@ -152,13 +153,26 @@ class BinMap extends React.Component {
                       </Grid>
                     </Grid>
                   </Grid>
-                  <Grid item xs={12} container spacing={2} alignItems="center">
-                    <Grid item xs={10} style={{backgroundColor: '#29B574', color: '#fff'}}>
-                      Kieruj się na północny wschód
+                  <Grid item xs={12} container spacing={1}>
+                    <Grid item xs={9}>
+                      <Grid container justify="center" alignItems="center" style={{backgroundColor: '#29B574', color: '#fff', height: '50px'}}>
+                        <Grid item xs={3}>
+                          <div style={{backgroundColor: '#29B574', color: '#fff', height: '50px', width: '50px', verticalAlign: 'middle', display: 'table-cell', textAlign: 'center'}}>
+                            <ArrowIcon />
+                          </div>
+                        </Grid>
+                        <Grid item xs={9}>
+                          <div style={{marginRight: '3px'}}>
+                            <Typography variant="caption">Kieruj się na północny wschód</Typography>
+                          </div>
+                        </Grid>
+                      </Grid>
                     </Grid>
-                    <Grid item xs={2}>
-                      <div style={{backgroundColor: '#29B574', color: '#fff', height: '100%', width: '100%'}}>
-                        <NavigationIcon/>
+                    <Grid item xs={3}>
+                      <div style={{backgroundColor: '#29B574', color: '#fff', height: '50px'}}>
+                        <div style={{backgroundColor: '#29B574', color: '#fff', height: '50px', width: '50px', verticalAlign: 'middle', display: 'table-cell', textAlign: 'center'}}>
+                          <NavigationIcon/>
+                        </div>
                       </div>
                     </Grid>
                   </Grid>
