@@ -58,7 +58,7 @@ function SimpleBottomNavigation(props) {
       className={classes.root}
     >
       <BottomNavigationAction  onClick={() => {onChnageBottom('/');}} label="Home" classes={overrideClasses} icon={<HomeIcon className={classes.icon}/>}/>
-      <BottomNavigationAction label="EcoPorady" onClick={() => {onChnageBottom('/tips')}} classes={overrideClasses} icon={<DescriptionIcon className={classes.icon}/>} />
+      <BottomNavigationAction label="EcoTips" onClick={() => {onChnageBottom('/tips')}} classes={overrideClasses} icon={<DescriptionIcon className={classes.icon}/>} />
       <BottomNavigationAction label="Loyalty" classes={overrideClasses} icon={<LoyaltyIcon className={classes.icon}/>} />
       <BottomNavigationAction label="Maps" classes={overrideClasses} onClick={() => {onChnageBottom('/map');}} icon={<LocationOnIcon className={classes.icon}/>} />
       <BottomNavigationAction label="Profile" classes={overrideClasses} onClick={() => {onChnageBottom('/profile');}} icon={<PersonIcon className={classes.icon}/>} />
