@@ -58,10 +58,10 @@ const styles = theme => ({
     transform: 'translateY(-50%)'
   },
   skipDiv: {
-    position: 'relative',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    cursor: 'pointer'
+    left: '50%',
+    position: 'absolute',
+    bottom: '10px',
+    transform: 'translateX(-50%)'
   }
 });
 
@@ -130,12 +130,14 @@ class MainAppBar extends React.Component {
               <div>
                 <div style={{textAlign: 'left'}}><LeafIcon/></div>
                 <Grid container justify="center" alignItems="center">
-                  <Grid item xs="12">
+                  <Grid item xs={12}>
                     <Typography variant="body2">This is a project created during Hack Yeah 2019 hackathon.</Typography>
                     <br/>
                     <Typography variant="body2">We have created a solution based on the Smart Bin system and applications. We invite you to familiarize yourself with the prototype.</Typography>
                     <br/>
-                    <Typography variant="body2">Download PDF presentations.</Typography>
+                    <a href={process.env.PUBLIC_URL + '/we-make-buttons-hackyeah-2019.pdf'} target="_blank">
+                      <Typography variant="body2" style={{color: '#55f', textDecoration: 'underline'}}>Download PDF presentations.</Typography>
+                    </a>
                   </Grid>
                 </Grid>
                 <div style={{textAlign: 'right'}}><LeafIcon transform="rotate(180)"/></div>
